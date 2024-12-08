@@ -257,8 +257,26 @@ window.addEventListener('load', () => {
     const container = document.getElementById('local-search-results')
     let resultItems = []
     if (searchText.length > 0) {
-    // Perform local searching
-      resultItems = localSearch.getResultItems(keywords)
+      if(searchText=="自杀"){
+          resultItems[0]={
+              item:"<div class=\"local-search-hit-item\">\n" +
+              "<a href=\"https://mhaoma.baidu.com/pages/search-result/search-result?search=%E5%8C%97%E4%BA%AC%E5%B8%82%E5%BF%83%E7%90%86%E5%8D%B1%E6%9C%BA%E5%B9%B2%E9%A2%84%E7%83%AD%E7%BA%BF&querytype=3&word=01082951332&tag=&datatype=&srcid=8756&locid=610947ee9e53123ba42f5c68&prov=%E5%8C%97%E4%BA%AC&city=&district=\">\n" +
+              "\t<span class=\"search-result-title\">世界虽然不完美，但我们仍可疗愈自己</span>\n" +
+              "\t\t<p class=\"search-result\">\n" +
+              "\t\t   <h1>朋友！你不孤单，我们都在</h1>\n" +
+              "\t\t   <h2>如果需要帮助，请拨打全国24小时免费心理咨询热线</h2>\n" +
+              "\t\t   <h3><a href=\"https://mhaoma.baidu.com/pages/search-result/search-result?search=%E5%8C%97%E4%BA%AC%E5%B8%82%E5%BF%83%E7%90%86%E5%8D%B1%E6%9C%BA%E5%B9%B2%E9%A2%84%E7%83%AD%E7%BA%BF&querytype=3&word=01082951332&tag=&datatype=&srcid=8756&locid=610947ee9e53123ba42f5c68&prov=%E5%8C%97%E4%BA%AC&city=&district=\">全国24小时免费心理咨询</a></h3>\n" +
+              "\t\t   <h4>010-82951332</h4>\n" +
+              "\t\t</p>\n" +
+              "</a>\n" +
+              "</div>"
+          }
+          resultItems.length=1
+      }else{
+        // Perform local searching
+        resultItems = localSearch.getResultItems(keywords)
+        console.log(resultItems)
+      }
     }
     if (keywords.length === 1 && keywords[0] === '') {
       container.textContent = ''
